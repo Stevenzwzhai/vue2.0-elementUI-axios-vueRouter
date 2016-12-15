@@ -59,15 +59,16 @@ export default{
 	responseType: 'json', // default
 
 
+	//将upload事件注释掉，防止跨域状态下发起option请求
 
-	onUploadProgress: function(progressEvent) {
-		// Do whatever you want with the native progress event
-	},
+	// onUploadProgress: function(progressEvent) {
+	// 	// Do whatever you want with the native progress event
+	// },
 
 
-	onDownloadProgress: function(progressEvent) {
-		// Do whatever you want with the native progress event
-	},
+	// onDownloadProgress: function(progressEvent) {
+	// 	// Do whatever you want with the native progress event
+	// },
 
 
 	maxContentLength: 2000,
