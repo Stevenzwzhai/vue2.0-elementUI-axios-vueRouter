@@ -57,9 +57,11 @@
 		      	</div>
 		    </el-table-column>
 		</el-table>
+		<Page @pageChange="pageChange" :pageTotal="pageTotal"></Page>
 	</div>
 </template>
 <script>
+import Page from './pages.vue'
 import API from '../../api/API'
 const api = new API();
 export default{
@@ -84,7 +86,47 @@ export default{
 	},
 	data() {
 		return {
-			tableData: [],
+			tableData: [{
+				date: '2016-05-02',
+				name: '王小虎1',
+				address: '上海市普陀区金沙江路 1518 弄',
+				isAdded:false
+			}, {
+				date: '2016-05-04',
+				name: '王小虎2',
+				address: '上海市普陀区金沙江路 1517 弄',
+				isAdded:false
+			}, {
+				date: '2016-05-01',
+				name: '王小虎3',
+				address: '上海市普陀区金沙江路 1519 弄',
+				isAdded:false
+			}, {
+				date: '2016-05-03',
+				name: '王小虎4',
+				address: '上海市普陀区金沙江路 1516 弄',
+				isAdded:false
+			},{
+				date: '2016-05-02',
+				name: '王小虎1',
+				address: '上海市普陀区金沙江路 1518 弄',
+				isAdded:false
+			}, {
+				date: '2016-05-04',
+				name: '王小虎2',
+				address: '上海市普陀区金沙江路 1517 弄',
+				isAdded:false
+			}, {
+				date: '2016-05-01',
+				name: '王小虎3',
+				address: '上海市普陀区金沙江路 1519 弄',
+				isAdded:false
+			}, {
+				date: '2016-05-03',
+				name: '王小虎4',
+				address: '上海市普陀区金沙江路 1516 弄',
+				isAdded:false
+			}],
 			DEFAULT_IMAGE:'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 			dialogVisible:false,
 			loading2:false,
@@ -93,18 +135,41 @@ export default{
 			}
 		}
 	},
+	computed:{
+		pageTotal(){
+			return Math.ceil(this.tablePage/5);
+		}
+	},
+	components:{
+		Page
+	},
 	methods:{
 		handleEdit(index,row){
 			console.log(index,row);
 			this.dialogVisible = true;
 			this.$emit('showDialog',row);
 		},
-		handleDelete(index,row){
-			this.tableData.splice(index,1);
+        handleDelete(index, row) {
+            this.$confirm('是否删除该应用?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                this.$message({
+                    type: 'success',
+                    message: '删除成功!'
+                });
+				this.tableData.splice(index,1);
+            }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });
+            });
 		},
-		onSubmit() {
-        	console.log('submit!');
-      	}
+		pageChange(currentPage){
+			console.log(currentPage);
+		}
 	}
 }
 </script>
