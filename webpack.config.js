@@ -1,8 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
 var HappyPack = require('happypack');
-// var happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
-
+var os=require('os');
+var happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+console.log(os);
 module.exports = {
     entry: './src/main.js',
     output: {
@@ -58,14 +59,14 @@ module.exports = {
         new HappyPack({
             id:'js',
             loaders: ['babel-loader'],
-            // threadPool: happyThreadPool,
+            threadPool: happyThreadPool,
             cache: true,
             verbose: true
         }),
         new HappyPack({
             id:'css',
             loaders: ['style-loader!css-loader'],
-            // threadPool: happyThreadPool,
+            threadPool: happyThreadPool,
             cache: true,
             verbose: true
         })
