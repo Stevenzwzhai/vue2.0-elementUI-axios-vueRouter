@@ -1,0 +1,25 @@
+import Vue from 'vue';
+import App from './App.vue';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
+import VueRouter from 'vue-router';
+// import routes from './router'
+Vue.use(ElementUI);
+Vue.use(VueRouter);
+
+import AppList from './components/app-list/app-list.vue';
+var routes = [{
+	path: "/",
+	component: AppList
+}];
+var router = new VueRouter({
+	routes: routes
+});
+
+new Vue({
+
+	router: router,
+	render: function render(h) {
+		return h(App);
+	}
+}).$mount('#app');

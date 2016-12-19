@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+var HappyPack = require('happypack');
+// var happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 module.exports = {
     entry: './src/main.js',
@@ -17,14 +19,14 @@ module.exports = {
             }
         }, {
             test: /\.css$/,
-            loader: 'style-loader!css-loader',
+            loader: 'happypack/loader?id=css',
         }, {
             test:/\.scss/,
             loader:'style-loader!css-loader!sass-loader',
             exclude:/node_modules/
         }, {
             test: /\.js$/,
-            loader: 'babel-loader',
+            loader: 'happypack/loader?id=js',
             exclude: /node_modules/
 
         }, {
@@ -51,7 +53,23 @@ module.exports = {
         historyApiFallback: true,
         noInfo: true
     },
-    devtool: '#eval-source-map'
+    devtool: '#eval-source-map',
+    plugins:[
+        new HappyPack({
+            id:'js',
+            loaders: ['babel-loader'],
+            // threadPool: happyThreadPool,
+            cache: true,
+            verbose: true
+        }),
+        new HappyPack({
+            id:'css',
+            loaders: ['style-loader!css-loader'],
+            // threadPool: happyThreadPool,
+            cache: true,
+            verbose: true
+        })
+    ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -71,6 +89,13 @@ if (process.env.NODE_ENV === 'production') {
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true
+        }),
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            /**
+             * 在这里引入 manifest 文件
+            */
+            manifest: require('./manifest.json')
         })
     ])
 }

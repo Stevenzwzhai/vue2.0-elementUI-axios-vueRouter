@@ -1,0 +1,21 @@
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = require("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.6.2.8@babel-loader/lib/index.js!./main.js");
+if(typeof content === 'string') content = [[module.id, content, '']];
+// add the styles to the DOM
+var update = require("!./../node_modules/.0.13.1@style-loader/addStyles.js")(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(module.hot) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.6.2.8@babel-loader/lib/index.js!./main.js", function() {
+			var newContent = require("!!./../node_modules/.0.25.0@css-loader/index.js!./../node_modules/.6.2.8@babel-loader/lib/index.js!./main.js");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}

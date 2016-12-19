@@ -1,0 +1,52 @@
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+import axios from 'axios';
+import config from './config';
+
+// axios(config);
+
+var API = function () {
+	function API() {
+		_classCallCheck(this, API);
+	}
+
+	_createClass(API, [{
+		key: 'get',
+
+		//获取已授权列表
+		value: function get(param) {
+			config.data.strSQL = param.param;
+			return axios.post(param.api, {}, config);
+		}
+		//添加授权
+
+	}, {
+		key: 'post',
+		value: function post(param) {
+			config.data.strSQL = param.param;
+			return axios.post(param.api, {}, config);
+		}
+	}, {
+		key: 'reqSuccess',
+		value: function reqSuccess(obj, msg) {
+			obj.$message({
+				message: msg,
+				type: 'success'
+			});
+		}
+	}, {
+		key: 'reqFail',
+		value: function reqFail(obj, msg) {
+			obj.$message({
+				message: msg,
+				type: 'success'
+			});
+		}
+	}]);
+
+	return API;
+}();
+
+export default API;
