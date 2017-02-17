@@ -1,11 +1,10 @@
 import Qs from 'qs'
 export default{
 
-	url: '/getdbdata2',
-	// baseUrl = 'http://mob.cmcloud.cn/servercloud/openapi/';
-	//    	baseUrlMob = 'http://172.20.131.86/ServerCloud/openapi/';
+	url: '/get',
+	
 
-	baseURL: 'http://172.20.131.86/ServerCloud/openapi/',
+	baseURL: 'http://....',
 	method: 'POST',
 
 	transformRequest: [
