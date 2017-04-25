@@ -25,3 +25,5 @@ resolve: {
 #### 加载css每次都最好加上style-loader和css-loader，而且要注意书写顺序，尤其是使用sass或less
 #### 关于elementUI的坑，自己去实践吧，总体还是不错的。
 #### 使用happypack和DllReferencePlugin，构建速度提升很多，从11s到3s，还是不错的
+
+#### 前几天看到有人说项目报错：DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic, see https://github.com/webpack/loader-utils/issues/56 parseQuery() will be replaced with getOptions() in the next major version of loader-utils.这个是node的错误提醒，关掉就好了，在webpack配置文件中设置process.noDeprecation=true即可。可参考https://github.com/vuejs/vue-loader/issues/666
