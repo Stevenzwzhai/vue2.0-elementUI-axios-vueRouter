@@ -1,8 +1,7 @@
 # my-app
 
 [![Build Status](https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter.svg?branch=master)](https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter)
-[![node](https://img.shields.io/node/v/gh-badges.svg?style=plastic)]()
-[![language](https://img.shields.io/badge/language-javascript-green.svg?style=plastic)]()
+[![language](https://img.shields.io/badge/language-javascript-green.svg?style=flat)]()
 
 > my light app
 
