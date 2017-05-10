@@ -1,5 +1,7 @@
 # my-app
 
+https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter.svg?branch=master
+
 > my light app
 
 ## Build Setup
