@@ -1,6 +1,6 @@
 # my-app
 
-https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter.svg?branch=master
+[![Build Status](https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter.svg?branch=master)](https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter)
 
 > my light app
 
