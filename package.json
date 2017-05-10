@@ -5,6 +5,7 @@
   "author": "zhiwei_zhai",
   "private": true,
   "scripts": {
+    "test":"echo \"Error: no test specified\"",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
