@@ -37,15 +37,16 @@ self.addEventListener('fetch', (event) => {
 //update更新
 self.addEventListener('activate', (event) => {
     event.waitUntil(
-        Promise.all(
-            caches.keys().then(cacheNames => {
-                console.log(caches.keys(), cacheNames);
-                return cacheNames.map(name => {
+        caches.keys().then(cacheNames => {
+            //这里注意如果返回值为空，会报错
+            return Promise.all(
+                cacheNames.map(name => {
                     if(name!==cacheVersion){
                         return caches.delete(name);
                     }
                 })
-            })
-        )
+            )
+          })
+        
     )
 })
