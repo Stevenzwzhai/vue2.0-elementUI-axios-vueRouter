@@ -1,0 +1,12 @@
+{
+    "name":"pwa",
+    "show_name":"ws",
+    "display":"standalone",
+    "theme_color":"#8888ff",
+    "background_color":"#aaaaff",
+    "icons":{
+        "src":"logo.png",
+        "size":"256x256",
+        "type":"image/png"
+    }
+}
