@@ -39,11 +39,11 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then(cacheNames => {
 				return cacheNames.filter(name => {
-							if(name !== cacheStorageKey){
+							if(name !== cacheVersion){
 								return name;
 							}
 						}).map(name => {
-							if (name !== cacheStorageKey) {
+							if (name !== cacheVersion) {
 								return caches.delete(name)
 							}
 						})
