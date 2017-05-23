@@ -38,16 +38,16 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then(cacheNames => {
-				return cacheNames.filter(name => {
-							if(name !== cacheVersion){
-								return name;
-							}
-						}).map(name => {
-							if (name !== cacheVersion) {
-								return caches.delete(name)
-							}
-						})
-			})
+            return Promise.all(
+                cacheNames.filter(cachename => {
+                    if(cachename == cacheVersion){
+                        return caches.delete(cachename);
+                    }
+                })
+            ).then(() => {
+                return self.clients.claim()
+            })
+        })
         
     )
 })
