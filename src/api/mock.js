@@ -6,7 +6,7 @@ import Mock from 'mockjs'
 const baseUrl = "http://www.jiekou.cn/"
 const Random = Mock.Random
 export default function(){
-
+	//首页数据
 	Mock.mock(`${baseUrl}getdbdata2`, {
 		"data":Array(10).fill(1).map(() => {
 			return {
@@ -20,7 +20,7 @@ export default function(){
 			}
 		})
 	});
-
+	//未添加应用列表
 	Mock.mock(`${baseUrl}getdbdata3`, {
 		"data":Array(10).fill(1).map(() => {
 			return {
@@ -34,7 +34,7 @@ export default function(){
 			}
 		})
 	});
-
+	//手机列表1
 	Mock.mock(`${baseUrl}getdbdata4`, {
 		"data":Array(10).fill(1).map(() => {
 			return {
@@ -43,7 +43,7 @@ export default function(){
 			}
 		})
 	});
-
+	//手机列表2
 	Mock.mock(`${baseUrl}getdbdata5`, {
 		"data":Array(10).fill(1).map(() => {
 			return {
