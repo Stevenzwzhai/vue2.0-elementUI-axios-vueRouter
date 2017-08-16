@@ -75,7 +75,6 @@ export default{
 		api.get(params)
 			.then(function(res){
 				console.log(JSON.parse(res.data))
-//				console.log(JSON.parse(res.data.data).sets[0].rows);
 				that.tableData = JSON.parse(res.data).data;
 				that.loading2 = false;
 			})
