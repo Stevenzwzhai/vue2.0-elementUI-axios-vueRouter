@@ -79,7 +79,7 @@ export default{
 		let that = this;
 		let params = {
 			api:"/getdbdata3",
-			param:"exec xFool_p_getpubapp 'qjb',''"
+			param:"exec xFool_p_getpubapp 'qq',''"
 		};
 		api.get(params)
 			.then(function(res){
