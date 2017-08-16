@@ -32,4 +32,4 @@ resolve: {
 #### 前几天看到有人说项目报错：DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic, see https://github.com/webpack/loader-utils/issues/56 parseQuery() will be replaced with getOptions() in the next major version of loader-utils.这个是node的错误提醒，关掉就好了，在webpack配置文件中设置process.noDeprecation=true即可。可参考https://github.com/vuejs/vue-loader/issues/666
 #### pwa文件中有关于pwa应用开发的简单配置，可以供参考,https://github.com/Stevenzwzhai/zhihu-daily 这个项目是比较完整的一个pwa项目。
 
-## ***这里添加mockjs，可以正常调用接口***
+## 这里添加mockjs，可以正常调用接口
