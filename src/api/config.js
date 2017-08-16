@@ -4,7 +4,7 @@ export default{
 	url: '/get',
 	
 
-	baseURL: 'http://....',
+	baseURL: 'http://www.jiekou.cn',
 	method: 'POST',
 
 	transformRequest: [

@@ -1,13 +1,13 @@
 <template>
 	<div class="block">
-	    <el-pagination
+	    <el-pagination>
 	      @current-change="handleCurrentChange"
 	      :current-page="currentPage"
 	      :page-size="5"
 	      layout="prev, pager, next, jumper"
 	      :page-count="pageTotal">
 	    </el-pagination>
-	  </div>agination>
+	  </div>
 	</div>
 </template>
 <script>

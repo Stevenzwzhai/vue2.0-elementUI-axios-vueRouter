@@ -2,7 +2,7 @@
 	<div>
 		<el-card class="box-card">
 		  	<div slot="header" class="clearfix">
-		    	<span style="line-height: 36px;">公司名称：奇思科技</span>
+		    	<span style="line-height: 36px;">公司名称：XX科技公司</span>
 		    	<el-button style="float: right;" type="success" @click="addApp">
 		    		<span v-show="isAdd">
 		    			<el-icon name="plus" class="pr8"></el-icon>添加应用

@@ -4,6 +4,7 @@
 	        <el-menu-item index="2">
 	        	<router-link to="/">我的轻应用</router-link>
 	    	</el-menu-item>
+        </el-menu>
   
 </template>
 

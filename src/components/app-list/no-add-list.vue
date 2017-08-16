@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<el-row class="no-mb">
-		  	<el-col :span="6">
+		  	<el-col :span="12">
 		  		<el-form :inline="true" :model="formAllApp" class="demo-form-inline">
 				  	<el-form-item>
 				    	<el-input v-model="formAllApp.keyword" class="ipt-w240" icon="search" placeholder="轻应用名称、开发者、开发者公司"></el-input>
@@ -13,15 +13,15 @@
 		  	</el-col>
 		</el-row>
 		<el-table :data="tableData" style="width: 100%"  height="610" v-loading="loading2" element-loading-text="拼命加载中">
-	  		<el-table-column inline-template label="轻应用自定义移动商城">
+	  		<el-table-column inline-template label="应用商城">
 		      	<div>
 		      		<el-row class="no-mb">
-					  	<el-col :span="2" class="pdtb5">
+					  	<el-col :span="3" class="pdtb5">
 					  		<div class="app-img">
 					  			<img :src="row.icon" style="height:100px;width:100px;">
 					  		</div>
 					  	</el-col>
-					  	<el-col :span="22" class="pdtb5">
+					  	<el-col :span="21" class="pdtb5">
 					  		<el-row :gutter="10" class="no-mb">
 							  	<el-col :span="24">
 							  		<span class="appname">{{row.appname}}</span>
@@ -83,8 +83,7 @@ export default{
 		};
 		api.get(params)
 			.then(function(res){
-				console.log(JSON.parse(res.data.data).sets[0].rows);
-				that.tableData = JSON.parse(res.data.data).sets[0].rows;
+				that.tableData = JSON.parse(res.data).data;
 				that.loading2 = false;
 			})
 			.catch(function(err){

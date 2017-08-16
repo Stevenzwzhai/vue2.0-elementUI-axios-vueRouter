@@ -5,13 +5,14 @@
   "author": "zhiwei_zhai",
   "private": true,
   "scripts": {
-    "test":"echo \"Error: no test specified\"",
+    "test": "echo \"Error: no test specified\"",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "element-ui": "^1.0.5",
+    "mockjs": "^1.0.1-beta3",
     "vue": "^2.1.0",
     "vue-router": "^2.1.1"
   },

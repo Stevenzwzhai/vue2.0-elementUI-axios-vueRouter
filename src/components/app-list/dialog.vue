@@ -8,12 +8,12 @@
 	    	<el-row :gutter="20">
 			  	<el-col :span="12">
 					<el-row class="no-mb">
-				  		<el-col :span="4">
+				  		<el-col :span="6">
 				  			<span class="pdt10">
 				  				未授权用户
 				  			</span>
 				  		</el-col>
-					  	<el-col :span="13" :offset="7">
+					  	<el-col :span="18">
 					  		<el-form :inline="true" :model="formAllApp" class="demo-form-inline">
 							  	<el-form-item>
 							    	<el-input v-model="formAllApp.keyword" class="ipt-w140" icon="search" placeholder="姓名、电话"></el-input>
@@ -36,12 +36,12 @@
 			  	</el-col>
 			  	<el-col :span="12">
 				  	<el-row class="no-mb">
-				  		<el-col :span="4">
+				  		<el-col :span="6">
 				  			<span class="pdt10">
 				  				已授权用户
 				  			</span>
 				  		</el-col>
-					  	<el-col :span="13" :offset="7">
+					  	<el-col :span="18">
 					  		<el-form :inline="true" :model="formAllApp" class="demo-form-inline">
 							  	<el-form-item>
 							    	<el-input v-model="formAllApp.keyword" class="ipt-w140" icon="search" placeholder="姓名、电话"></el-input>
@@ -153,12 +153,12 @@ export default{
 			let that = this;
 			//未授权用户
 			let params1 = {
-				api:"/getdbdata2",
+				api:"/getdbdata4",
 				param:"select fname as username, isnull(fmobilephone,'') as mobile  from t_Emp order by username"
 			};
 			//已授权用户
 			let params2 = {
-				api:"/getdbdata2",
+				api:"/getdbdata5",
 				param:"exec xFool_p_getright '80000001'"
 			};
 			this.uniqueUser();
@@ -166,8 +166,8 @@ export default{
 			  	.then(axios.spread(function (res1, res2) {
 			    	console.log(res1, res2)
 
-			    	let data1 = JSON.parse(res1.data.data).sets[0].rows;
-			    	let data2 = JSON.parse(res2.data.data).sets[0].rows;
+			    	let data1 = JSON.parse(res1.data).data;
+			    	let data2 = JSON.parse(res2.data).data;
 			    	data1 = data2.concat(data1);
 			    	that.unAuthorizedUsers = data1.uniqueUser();
 			    	that.authorizedUsers = data2;
@@ -185,7 +185,6 @@ export default{
 	            this.sort(function(a,b){
 	            	return parseInt(a.mobile)-parseInt(b.mobile);
 	            });
-	            console.log(this)
 	            var re = [this[0]];
 	            for (var i = 1; i < this.length; i++) {
 	                if (this[i].mobile == re[re.length - 1].mobile) {

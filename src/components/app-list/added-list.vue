@@ -4,12 +4,12 @@
 	  		<el-table-column inline-template label="已添加轻应用" >
 		      	<div>
 		      		<el-row class="no-mb">
-					  	<el-col :span="2" class="pdtb5">
+					  	<el-col :span="3" class="pdtb5">
 					  		<div class="app-img">
 					  			<img :src="row.icon" style="height:100px;width:100px;">
 					  		</div>
 					  	</el-col>
-					  	<el-col :span="22" class="pdtb5">
+					  	<el-col :span="21" class="pdtb5">
 					  		<el-row :gutter="10" class="no-mb">
 							  	<el-col :span="24">
 							  		<span class="appname">{{row.appname}}</span>
@@ -74,8 +74,9 @@ export default{
 		};
 		api.get(params)
 			.then(function(res){
-				console.log(JSON.parse(res.data.data).sets[0].rows);
-				that.tableData = JSON.parse(res.data.data).sets[0].rows;
+				console.log(JSON.parse(res.data))
+//				console.log(JSON.parse(res.data.data).sets[0].rows);
+				that.tableData = JSON.parse(res.data).data;
 				that.loading2 = false;
 			})
 			.catch(function(err){
@@ -86,47 +87,7 @@ export default{
 	},
 	data() {
 		return {
-			tableData: [{
-				date: '2016-05-02',
-				name: '王小虎1',
-				address: '上海市普陀区金沙江路 1518 弄',
-				isAdded:false
-			}, {
-				date: '2016-05-04',
-				name: '王小虎2',
-				address: '上海市普陀区金沙江路 1517 弄',
-				isAdded:false
-			}, {
-				date: '2016-05-01',
-				name: '王小虎3',
-				address: '上海市普陀区金沙江路 1519 弄',
-				isAdded:false
-			}, {
-				date: '2016-05-03',
-				name: '王小虎4',
-				address: '上海市普陀区金沙江路 1516 弄',
-				isAdded:false
-			},{
-				date: '2016-05-02',
-				name: '王小虎1',
-				address: '上海市普陀区金沙江路 1518 弄',
-				isAdded:false
-			}, {
-				date: '2016-05-04',
-				name: '王小虎2',
-				address: '上海市普陀区金沙江路 1517 弄',
-				isAdded:false
-			}, {
-				date: '2016-05-01',
-				name: '王小虎3',
-				address: '上海市普陀区金沙江路 1519 弄',
-				isAdded:false
-			}, {
-				date: '2016-05-03',
-				name: '王小虎4',
-				address: '上海市普陀区金沙江路 1516 弄',
-				isAdded:false
-			}],
+			tableData: [],
 			DEFAULT_IMAGE:'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
 			dialogVisible:false,
 			loading2:false,
