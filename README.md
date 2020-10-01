@@ -1,4 +1,4 @@
-# my-app
+# my-app:- An amazing Project
 
 [![Build Status](https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter.svg?branch=master)](https://travis-ci.org/Stevenzwzhai/vue2.0-elementUI-axios-vueRouter)
 [![language](https://img.shields.io/badge/language-javascript-green.svg?style=flat)]()
